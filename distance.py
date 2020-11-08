@@ -5,8 +5,8 @@ import time
 # Define GPIO to use on Pi
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO_TRIGGER = 23
-GPIO_ECHO = 24
+GPIO_TRIGGER = 15
+GPIO_ECHO = 14
 
 TRIGGER_TIME = 0.00001
 MAX_TIME = 0.004  # max time waiting for response in case something is missed
