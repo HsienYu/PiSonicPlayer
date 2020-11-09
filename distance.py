@@ -1,7 +1,7 @@
 # Libraries
 import RPi.GPIO as GPIO
 import time
-import asyncio
+#import asyncio
 import alsaaudio
 
 # set mixer
