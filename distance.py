@@ -1,6 +1,13 @@
 # Libraries
 import RPi.GPIO as GPIO
 import time
+import asyncio
+import alsaaudio
+
+# set mixer
+m = alsaaudio.Mixer()
+vol = m.getvolume()
+vol = int(vol[0])
 
 # GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
@@ -12,6 +19,20 @@ GPIO_ECHO = 14
 # set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
+
+
+async def volume_up():
+    # do things here
+    for v in range(0, 60):
+        newVol = vol + v
+        m.setvolume(newVol)
+
+
+async def volume_down():
+    # do things here
+    for v in range(60, 0):
+        newVol = vol - v
+        m.setvolume(newVol)
 
 
 def distance():
