@@ -34,6 +34,8 @@ while True:
     distance = pulse_duration * 17150  # Calculate distance
     distance = round(distance, 2)  # Round to two decimal points
 
+    print "raw Distance", distance, "cm"
+
     if distance > 20 and distance < 400:  # Is distance within range
         print "Distance:", distance - 0.5, "cm"  # Distance with calibration
     else:
