@@ -70,9 +70,9 @@ if __name__ == '__main__':
             print("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
             if dist < 200:
-                await volume_down()
+                volume_down()
             else:
-                await volume_up()
+                volume_up()
 
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
