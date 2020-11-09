@@ -5,7 +5,7 @@ import time
 import alsaaudio
 
 # set mixer
-m = alsaaudio.Mixer()
+m = alsaaudio.Mixer('Headphone')
 vol = m.getvolume()
 vol = int(vol[0])
 
