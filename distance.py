@@ -21,14 +21,14 @@ GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 
-async def volume_up():
+def volume_up():
     # do things here
     for v in range(0, 60):
         newVol = vol + v
         m.setvolume(newVol)
 
 
-async def volume_down():
+def volume_down():
     # do things here
     for v in range(60, 0):
         newVol = vol - v
