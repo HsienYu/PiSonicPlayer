@@ -93,7 +93,7 @@ if __name__ == '__main__':
                 loop.run_until_complete(volume_up())
                 # loop.run_until_complete(check())
             else:
-                # loop.run_until_complete(volume_down())
+                loop.run_until_complete(volume_down())
                 pass
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
