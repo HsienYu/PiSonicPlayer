@@ -31,6 +31,7 @@ async def volume_up():
     for v in range(0, 80):
         newVol = vol + v
         m.setvolume(newVol)
+        time.sleep(0.5)
 
 
 async def volume_down():
@@ -77,9 +78,9 @@ if __name__ == '__main__':
             print("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
             if dist < 200:
-                loop.run_until_complete(volume_down())
-            else:
                 loop.run_until_complete(volume_up())
+            else:
+                loop.run_until_complete(volume_down())
 
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
