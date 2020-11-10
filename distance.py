@@ -66,22 +66,19 @@ def distance():
     # and divide by 2, because there and back
     distance = (TimeElapsed * 34300) / 2
 
-    print(distance)
-
     return distance
 
 
 if __name__ == '__main__':
     try:
-        loop.run_forever(distance())
-        # while True:
-        #     dist = distance()
-        #     print("Measured Distance = %.1f cm" % dist)
-        #     time.sleep(1)
-        #     if dist < 200:
-        #         await volume_down()
-        #     else:
-        #         await volume_up()
+        while True:
+            dist = distance()
+            print("Measured Distance = %.1f cm" % dist)
+            time.sleep(1)
+            if dist < 200:
+                loop.run_until_complete(volume_down())
+            else:
+                loop.run_until_complete(volume_up())
 
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
