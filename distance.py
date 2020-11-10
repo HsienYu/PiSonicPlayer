@@ -4,7 +4,7 @@
 # Libraries
 import RPi.GPIO as GPIO
 import time
-#import asyncio
+import asyncio
 import alsaaudio
 
 # set mixer
@@ -24,20 +24,21 @@ GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 
-def volume_up():
+async def volume_up():
     # do things here
     for v in range(0, 60):
         newVol = vol + v
         m.setvolume(newVol)
 
 
-def volume_down():
+async def volume_down():
     # do things here
     for v in range(60, 0):
         newVol = vol - v
         m.setvolume(newVol)
 
 
+@asyncio.coroutine
 def distance():
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
@@ -73,9 +74,9 @@ if __name__ == '__main__':
             print("Measured Distance = %.1f cm" % dist)
             time.sleep(1)
             if dist < 200:
-                volume_down()
+                await volume_down()
             else:
-                volume_up()
+                await volume_up()
 
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
