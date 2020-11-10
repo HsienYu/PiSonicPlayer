@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# encoding:utf-8
+
 # Libraries
 import RPi.GPIO as GPIO
 import time
