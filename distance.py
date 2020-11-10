@@ -37,7 +37,11 @@ async def volume_up():
 
 async def volume_down():
     # do things here
-    m.setvolume(0)
+    vol = m.getvolume()
+    vol = int(vol[0])
+    while vol > 0:
+        vol -= 1
+        m.setvolume(vol)
 
 
 # @asyncio.coroutine
