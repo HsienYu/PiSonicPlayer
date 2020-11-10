@@ -29,6 +29,7 @@ loop = asyncio.get_event_loop()
 async def volume_up():
     # do things here
     vol = m.getvolume()
+    vol = int(vol[0])
     for v in range(vol, 80):
         newVol = vol + v
         m.setvolume(newVol)
