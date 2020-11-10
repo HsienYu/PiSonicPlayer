@@ -9,8 +9,7 @@ import alsaaudio
 
 # set mixer
 m = alsaaudio.Mixer('HDMI')
-vol = m.getvolume()
-vol = int(vol[0])
+m.setvolume(0)
 
 # GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
@@ -31,9 +30,12 @@ async def volume_up():
     vol = m.getvolume()
     vol = int(vol[0])
     for v in range(vol, 80):
-        newVol = vol + v
-        m.setvolume(newVol)
-        time.sleep(0.01)
+        if vol < 80:
+            newVol = vol + v
+            m.setvolume(newVol)
+            time.sleep(0.01)
+        else:
+            pass
 
 
 async def volume_down():
