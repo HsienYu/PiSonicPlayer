@@ -50,7 +50,8 @@ async def volume_down():
 
 async def check(distance):
     current_time = time.time()
-    while time.time() = current_time + 60:
+    target_time = current_time + 60
+    while time.time() == target_time:
         volume_down()
 
 
