@@ -48,11 +48,11 @@ async def volume_down():
         time.sleep(0.05)
 
 
-async def check(distance):
-    current_time = time.time()
-    target_time = current_time + 60
-    while time.time() == target_time:
-        volume_down()
+# async def check(distance):
+#     current_time = time.time()
+#     target_time = current_time + 60
+#     while time.time() == target_time:
+#         volume_down()
 
 
 def distance():
@@ -91,7 +91,7 @@ if __name__ == '__main__':
             time.sleep(1)
             if dist < 200:
                 loop.run_until_complete(volume_up())
-                loop.run_until_complete(check())
+                # loop.run_until_complete(check())
             else:
                 # loop.run_until_complete(volume_down())
                 pass
