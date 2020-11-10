@@ -8,8 +8,11 @@ import asyncio
 import alsaaudio
 
 # set mixer
-m = alsaaudio.Mixer('HDMI')
-m.setvolume(0)
+devices = alsaaudio.cards()
+idx = devices.index('Headphones')
+mixers = alsaaudio.mixers(idx)
+print(mixers)
+m = alsaaudio.Mixer(mixers[int(0)], cardindex=idx)
 
 # GPIO Mode (BOARD / BCM)
 GPIO.setmode(GPIO.BCM)
