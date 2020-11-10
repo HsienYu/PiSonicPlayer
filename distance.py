@@ -48,7 +48,12 @@ async def volume_down():
         time.sleep(0.05)
 
 
-# @asyncio.coroutine
+async def check(distance):
+    current_time = time.time()
+    while time.time() = current_time + 60:
+        volume_down()
+
+
 def distance():
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
@@ -85,9 +90,10 @@ if __name__ == '__main__':
             time.sleep(1)
             if dist < 200:
                 loop.run_until_complete(volume_up())
+                loop.run_until_complete(check())
             else:
-                loop.run_until_complete(volume_down())
-
+                # loop.run_until_complete(volume_down())
+                pass
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
         print("Measurement stopped by User")
