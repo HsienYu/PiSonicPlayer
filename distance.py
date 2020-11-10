@@ -31,7 +31,7 @@ async def volume_up():
     vol = m.getvolume()
     for v in range(0, 80):
         newVol = vol + v
-        m.setvolume(newVol)
+        m.setvolume(int(newVol))
 
 
 async def volume_down():
@@ -39,7 +39,7 @@ async def volume_down():
     # for v in range(vol, 0):
     #     newVol = vol - v
     #     m.setvolume(newVol)
-    m.setvolume(0)
+    m.setvolume(int(0))
 
 
 # @asyncio.coroutine
