@@ -30,8 +30,8 @@ async def volume_up():
     vol = m.getvolume()
     vol = int(vol[0])
     while vol < 60:
-        newVol = vol
-        m.setvolume(newVol)
+        vol += 1
+        m.setvolume(vol)
         time.sleep(0.01)
 
 
