@@ -29,19 +29,14 @@ async def volume_up():
     # do things here
     vol = m.getvolume()
     vol = int(vol[0])
-    if vol < 80:
-        newVol = vol + 1
+    while vol < 60:
+        newVol = vol
         m.setvolume(newVol)
         time.sleep(0.01)
-    else:
-        pass
 
 
 async def volume_down():
     # do things here
-    # for v in range(vol, 0):
-    #     newVol = vol - v
-    #     m.setvolume(newVol)
     m.setvolume(0)
 
 
