@@ -31,7 +31,7 @@ async def volume_up():
     for v in range(0, 80):
         newVol = vol + v
         m.setvolume(newVol)
-        time.sleep(0.5)
+        time.sleep(0.01)
 
 
 async def volume_down():
