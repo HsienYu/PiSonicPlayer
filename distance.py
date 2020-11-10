@@ -23,17 +23,19 @@ GPIO_ECHO = 14
 GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
+loop = asyncio.get_event_loop()
+
 
 async def volume_up():
     # do things here
-    for v in range(0, 60):
+    for v in range(vol, 60):
         newVol = vol + v
         m.setvolume(newVol)
 
 
 async def volume_down():
     # do things here
-    for v in range(60, 0):
+    for v in range(vol, 0):
         newVol = vol - v
         m.setvolume(newVol)
 
@@ -64,19 +66,22 @@ def distance():
     # and divide by 2, because there and back
     distance = (TimeElapsed * 34300) / 2
 
+    print distance
+
     return distance
 
 
 if __name__ == '__main__':
     try:
-        while True:
-            dist = distance()
-            print("Measured Distance = %.1f cm" % dist)
-            time.sleep(1)
-            if dist < 200:
-                await volume_down()
-            else:
-                await volume_up()
+        loop.run_forever(distance())
+        # while True:
+        #     dist = distance()
+        #     print("Measured Distance = %.1f cm" % dist)
+        #     time.sleep(1)
+        #     if dist < 200:
+        #         await volume_down()
+        #     else:
+        #         await volume_up()
 
         # Reset by pressing CTRL + C
     except KeyboardInterrupt:
