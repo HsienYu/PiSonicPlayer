@@ -40,7 +40,7 @@ async def volume_down():
         m.setvolume(newVol)
 
 
-@asyncio.coroutine
+# @asyncio.coroutine
 def distance():
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
