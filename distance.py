@@ -8,7 +8,7 @@ import asyncio
 import alsaaudio
 
 # set mixer
-m = alsaaudio.Mixer('HDMI')
+m = alsaaudio.Mixer('Headphone')
 vol = m.getvolume()
 vol = int(vol[0])
 
