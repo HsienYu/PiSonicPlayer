@@ -32,7 +32,7 @@ async def volume_up():
     while vol < 80:
         vol += 1
         m.setvolume(vol)
-        time.sleep(0.01)
+        time.sleep(0.05)
 
 
 async def volume_down():
@@ -42,6 +42,7 @@ async def volume_down():
     while vol > 0:
         vol -= 1
         m.setvolume(vol)
+        time.sleep(0.05)
 
 
 # @asyncio.coroutine
